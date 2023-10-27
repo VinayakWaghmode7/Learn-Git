@@ -1,6 +1,23 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import  ReactDOM  from 'react-dom';
 
+/**
+for swiggy app rough structure 
+header
+-logo 
+-navbar
+Body:-
+-search
+-RestaurantContainer:-
+   -Restaurantcards 
+Footer:-
+ -Copyright
+ -Contact 
+ -About 
+ -Address
+ */
+
+ 
 //React.CreateElement is the core of React and it creates the heading(h1)
 //SO, we want to display the heading on to the broswer so we used a 
 //ReactDOM.createroot, whatever you like to render on the browser/display that 
