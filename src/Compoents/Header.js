@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { LOGO_URL } from "../utils/Constants"
+import { LOGO_URL } from "../utils/Constants";
+import { Link } from "react-router-dom";
 
 //Make Header Compoent
  export const  Header = () => {
@@ -20,7 +21,7 @@ import { LOGO_URL } from "../utils/Constants"
    
     useEffect(() => {
       console.log("useEffect is called");
-    })
+    },[])
 
     return(
          <div className="header">
@@ -30,9 +31,9 @@ import { LOGO_URL } from "../utils/Constants"
          </div>
          <div className="nav-items">
          <ul>
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Contact Us</li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/contact">Contact Us</Link></li>
             <li>Cart</li>
          </ul>
          <button className="btn-name" onClick={()=>{

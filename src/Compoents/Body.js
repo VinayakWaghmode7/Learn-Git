@@ -87,9 +87,7 @@ const fetchData = async () =>{
             } } > Top Rated Restaurants</button>
          </div>
        
-         <button onClick={()=> {
-           console.log("Hii");
-         }}>Hii</button>
+        
         
          <div className="res-container">
          

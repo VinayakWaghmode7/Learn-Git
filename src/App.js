@@ -5,7 +5,8 @@ import { Body } from './Compoents/Body';
 import { About } from './Compoents/About';
 import Contact from './Compoents/ContactUs';
 import Error from './Compoents/Error';
-import { createBrowserRouter,RouterProvider } from 'react-router-dom';
+import  RestaurantMenu  from './Compoents/RestaurantMenu';
+import { createBrowserRouter,RouterProvider,Outlet } from 'react-router-dom';
 
 
 /**
@@ -35,7 +36,11 @@ Footer:-
           <div className="App">
           {/* Render the Header or any  Compoents here because it is a outer-lebvel compoent */}
           <Header/>
-          <Body/>
+          {/* <Body/> */}
+          {/* The Outlet is the React-Router-dom component which routes the Compoents
+          according to the children where we mentioned paths. */}
+          {/* as this scenario header compoent will intact with the Outlet children */}
+          <Outlet/>
           </div>
      )
  };
@@ -69,16 +74,27 @@ const appRouter = createBrowserRouter([
      {
        path: "/",
        element:<AppLayout/>,
+       children:[
+            {
+              path: "/",
+              element:<Body/>
+             },
+             {
+               path: "/about",
+               element:<About/>,
+              },
+              {
+              path:"/contact",
+              element:<Contact/>,
+              },
+              {
+               path:"/restaurant/:resId",
+               element:<RestaurantMenu/>,
+              },
+       ],
        errorElement:<Error/>,
      },
-     {
-      path: "/about",
-      element:<About/>,
-     },
-     {
-     path:"/contact",
-     element:<Contact/>,
-     },
+     
 ]);
 
 
