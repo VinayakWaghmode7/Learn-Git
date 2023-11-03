@@ -1,11 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/Constants"
 
 //Make Header Compoent
  export const  Header = () => {
  
     //let btnName = "Login";
+    //never use useState hook in if else statements.(Conditional Statments,for loops,inside the functiones)
+    //call the useState hook at top of Compoent. 
     const [login, setLogin] = useState("Login");
+
+    //as the state changes Whole Compoent(Header) is re-render(because of diff alogorithem is triggred) as we 
+    //we use a login as state variable and whenever there is click on login button
+    //state changes (it became logout) and Compoent re-render.
+    //so, use used useEffect hook in header compoent. so state changes 
+    //useEffect also called. 
+    //it is bad practice to call useEffect on every state change , so we need
+    //to use empty dependancy array [] , if not use it called every state change
+    //when we use empty dependancy array [] , use useEffect hook called on first render,when UI loads on the screen.
+   
+    useEffect(() => {
+      console.log("useEffect is called");
+    })
 
     return(
          <div className="header">

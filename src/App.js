@@ -2,6 +2,10 @@ import React, { useLayoutEffect } from 'react';
 import  ReactDOM  from 'react-dom';
 import { Header } from './Compoents/Header';
 import { Body } from './Compoents/Body';
+import { About } from './Compoents/About';
+import Contact from './Compoents/ContactUs';
+import Error from './Compoents/Error';
+import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 
 
 /**
@@ -59,8 +63,27 @@ const Heading = ()=>(
      </div>
 );
 
+//always create routing in the App.js file.
+//here for routing we create routing configuration as below.
+const appRouter = createBrowserRouter([
+     {
+       path: "/",
+       element:<AppLayout/>,
+       errorElement:<Error/>,
+     },
+     {
+      path: "/about",
+      element:<About/>,
+     },
+     {
+     path:"/contact",
+     element:<Contact/>,
+     },
+]);
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout/>);
+root.render(<RouterProvider router={appRouter}/>);
 
 // above heading variable is the React element and every react element is the object and 
 // this object(heading) -> is convert it into -> the HTML(That's browser understand)
