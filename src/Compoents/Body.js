@@ -4,7 +4,10 @@ import { useEffect, useState } from "react";
 import { Shimmer } from "./Shimmer";
 //This Body also React Component
 export const Body= () =>{
+    
 const [restaurantList , setListOfRestaurants] = useState([]);
+const [filteredRestaurants,setListOfFilteredRestaurants] = useState([]);
+const [searchtext, setSearchText] = useState("");
 
 //what is the Hook at end of the day it is a Javascript function which 
 //has specific purpose. like useState hook has a purpose is to change the state
@@ -30,7 +33,7 @@ const [restaurantList , setListOfRestaurants] = useState([]);
 //& then then second render happens with all CSS & js files.
 //Loads => Render(first)=>Api call(useEffect)=>second Render(CSS & JS)
 useEffect(()=>{
-    // console.log("Hii How are you doing ?");
+    //console.log("Hii How are you doing ?");
     fetchData();
 },[]);
 
@@ -41,10 +44,12 @@ const fetchData = async () =>{
      console.log(json);
    
      setListOfRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+     setListOfFilteredRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+  
 }
 
 //conditional rendering
- if(restaurantList.length===0){
+ if(restaurantList?.length===0){
     //At initial lenth of restaurants cards is 0 , so return the shimmer
    return <Shimmer/>
  }
@@ -53,19 +58,44 @@ const fetchData = async () =>{
          <div className='body'>
          {/* <div className="search">Search</div> */}
          <div className="filter">
-            <button className="filter-btn"
+         
+         <div className="Search">
+            <input type="text" className="search-box" value={searchtext}
+                onChange={(e)=>{
+                    setSearchText(e.target.value);
+                }}
+            />
+             <button onClick={()=>{
+               //filter the restaurants cards by name and update the UI.
+               //searchtext.
+               
+               const filteredRestaurants=restaurantList?.filter((res)=>res?.info?.name.toLowerCase().includes(searchtext.toLowerCase()));
+               
+               setListOfFilteredRestaurants(filteredRestaurants); 
+              
+                }}>Search</button>
+         </div>   
+
+         
+
+         <button className="filter-btn"
             onClick={() => {
-                const filterdData = restaurantList.filter(
+                const filterdData = restaurantList?.filter(
                     (res)=>res?.info?.avgRating > 4);
                     console.log(filterdData);
                     setListOfRestaurants(filterdData);
             } } > Top Rated Restaurants</button>
          </div>
+       
+         <button onClick={()=> {
+           console.log("Hii");
+         }}>Hii</button>
+        
          <div className="res-container">
          
          {/* <RestaurantCard resData = {resObj}/> */}
          {
-              restaurantList?.map((restaurant) =>(
+             filteredRestaurants?.map((restaurant) =>(
                    <RestaurantCard key={restaurant?.info?.id} resData={restaurant}/>
               ))
          }
