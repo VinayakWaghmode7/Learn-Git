@@ -44,7 +44,7 @@ const fetchData = async () =>{
      console.log(json);
    
      setListOfRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-     setListOfFilteredRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+     setListOfFilteredRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants && json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   
 }
 
@@ -70,7 +70,7 @@ const fetchData = async () =>{
                //searchtext.
                
                const filteredRestaurants=restaurantList?.filter((res)=>res?.info?.name.toLowerCase().includes(searchtext.toLowerCase()));
-               
+               console.log(filteredRestaurants);
                setListOfFilteredRestaurants(filteredRestaurants); 
               
                 }}>Search</button>
