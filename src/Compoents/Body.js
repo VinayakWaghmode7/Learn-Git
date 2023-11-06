@@ -69,9 +69,9 @@ const fetchData = async () =>{
                //filter the restaurants cards by name and update the UI.
                //searchtext.
                
-               const filteredRestaurant=restaurantList?.filter((res)=>res?.info?.name.toLowerCase().includes(searchtext.toLowerCase()));
+               const filteredRestaurants=restaurantList?.filter((res)=>res?.info?.name.toLowerCase().includes(searchtext.toLowerCase()));
                console.log(filteredRestaurants);
-               setListOfFilteredRestaurants(filteredRestaurant); 
+               setListOfFilteredRestaurants(filteredRestaurants); 
               
                 }}>Search</button>
          </div>   
