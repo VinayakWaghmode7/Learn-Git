@@ -69,9 +69,9 @@ const fetchData = async () =>{
                //filter the restaurants cards by name and update the UI.
                //searchtext.
                
-               const filteredRestaurants=restaurantList?.filter((res)=>res?.info?.name.toLowerCase().includes(searchtext.toLowerCase()));
+               const filteredRestaurant=restaurantList?.filter((res)=>res?.info?.name.toLowerCase().includes(searchtext.toLowerCase()));
                console.log(filteredRestaurants);
-               setListOfFilteredRestaurants(filteredRestaurants); 
+               setListOfFilteredRestaurants(filteredRestaurant); 
               
                 }}>Search</button>
          </div>   
@@ -92,11 +92,14 @@ const fetchData = async () =>{
          <div className="res-container">
          
          {/* <RestaurantCard resData = {resObj}/> */}
-         {
-             filteredRestaurants?.map((restaurant) =>(
+    
+       
+        {
+              filteredRestaurants?.map((restaurant) =>(
                    <RestaurantCard key={restaurant?.info?.id} resData={restaurant}/>
               ))
          }
+        
         
          </div>
          </div>
