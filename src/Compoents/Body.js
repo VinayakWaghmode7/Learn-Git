@@ -2,7 +2,7 @@ import { RestaurantCard } from "./RestaurantCard";
 import { resObj } from "../utils/MockData";
 import { useEffect, useState } from "react";
 import { Shimmer } from "./Shimmer";
-//This Body also React Component
+//This Body also React Component.
 export const Body= () =>{
     
 const [restaurantList , setListOfRestaurants] = useState([]);
@@ -62,7 +62,7 @@ const fetchData = async () =>{
      const json = await data.json();
      console.log(json);
    
-     setListOfRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+     setListOfRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants && json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
      setListOfFilteredRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants && json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   
 }
