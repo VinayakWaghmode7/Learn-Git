@@ -37,6 +37,25 @@ useEffect(()=>{
     fetchData();
 },[]);
 
+useEffect(()=>{
+     filteredRestaurant(searchtext,restaurantList)
+},[searchtext]);
+
+const filteredRestaurant= (searchtext, restaurantList)=> {
+    const filteredRestaurant  = restaurantList?.filter((res)=>res?.info?.name.toLowerCase().includes(searchtext.toLowerCase())); 
+    setListOfFilteredRestaurants(filteredRestaurant);
+    return filteredRestaurant;
+};
+
+const filterdData = (restaurantList) =>{
+    const filterdData = restaurantList?.filter((res)=>res?.info?.avgRating>4);
+    setListOfRestaurants(filterdData);
+    console.log(filterdData);
+    return filterdData;
+}
+
+
+
 const fetchData = async () =>{
      const data = await fetch("https://corsproxy.io/?https%3A%2F%2Fwww.swiggy.com%2Fdapi%2Frestaurants%2Flist%2Fv5%3Flat%3D18.5512771%26lng%3D73.92098940000001%26is-seo-homepage-enabled%3Dtrue%26page_type%3DDESKTOP_WEB_LISTING");
 
@@ -65,7 +84,9 @@ const fetchData = async () =>{
                     setSearchText(e.target.value);
                 }}
             />
-             <button onClick={()=>{
+
+            
+             {/* <button onClick={()=>{
                //filter the restaurants cards by name and update the UI.
                //searchtext.
                
@@ -73,18 +94,27 @@ const fetchData = async () =>{
                console.log(filteredRestaurants);
                setListOfFilteredRestaurants(filteredRestaurants); 
               
-                }}>Search</button>
+                }}>Search</button> */}
+            
+            {/* {
+                <button onClick={()=>{filteredRestaurant(searchtext,restaurantList)}}>search</button>
+            } */}
+               
          </div>   
 
-         
+         {
+            <button onClick={()=>{
+                filterdData(restaurantList);
+            }}>TopRatedRestaurants</button>
+         }
 
-         <button className="filter-btn"
+         {/* <button className="filter-btn"
             onClick={() => {
                 const filterdData = restaurantList?.filter(
                     (res)=>res?.info?.avgRating > 4);
                     console.log(filterdData);
                     setListOfRestaurants(filterdData);
-            } } > Top Rated Restaurants</button>
+            } } > Top Rated Restaurants</button> */}
          </div>
        
         
