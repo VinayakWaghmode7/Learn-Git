@@ -1,5 +1,6 @@
 import { RestaurantCard } from "./RestaurantCard";
 import { resObj } from "../utils/MockData";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Shimmer } from "./Shimmer";
 //This Body also React Component.
@@ -124,9 +125,9 @@ const fetchData = async () =>{
          {/* <RestaurantCard resData = {resObj}/> */}
     
        
-        {
+        {  
               filteredRestaurants?.map((restaurant) =>(
-                   <RestaurantCard key={restaurant?.info?.id} resData={restaurant}/>
+                   <Link  to={"restaurant/" +restaurant?.info?.id }><RestaurantCard key={restaurant?.info?.id} resData={restaurant}/></Link>
               ))
          }
         

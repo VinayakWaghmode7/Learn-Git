@@ -71,3 +71,28 @@
     display: flex;
     margin: 3px;
 }
+
+.menuListImage{
+    width:200px;
+    height:350px;
+    padding: 5px;
+    margin-top: 20px;
+   
+}
+
+.menuListContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* .MenuList{
+    height:500px;
+    width:100%;
+} */
+
+/* .resPriceName{
+    width:300px;
+  
+} */
+
+

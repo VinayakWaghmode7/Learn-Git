@@ -34,7 +34,7 @@ import { Link } from "react-router-dom";
             <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About Us</Link></li>
             <li><Link to="/contact">Contact Us</Link></li>
-            <li>Cart</li>
+            {/* <li><Link to ="/cart">Cart</Link></li> */}
          </ul>
          <button className="btn-name" onClick={()=>{
              login==="Login"?setLogin("Logout"):setLogin("Login");

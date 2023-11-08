@@ -3,6 +3,7 @@ import  ReactDOM  from 'react-dom';
 import { Header } from './Compoents/Header';
 import { Body } from './Compoents/Body';
 import { About } from './Compoents/About';
+
 import Contact from './Compoents/ContactUs';
 import Error from './Compoents/Error';
 import  RestaurantMenu  from './Compoents/RestaurantMenu';
@@ -91,6 +92,7 @@ const appRouter = createBrowserRouter([
                path:"/restaurant/:resId",
                element:<RestaurantMenu/>,
               },
+              
        ],
        errorElement:<Error/>,
      },
