@@ -81,8 +81,15 @@
 }
 
 .menuListContainer{
-    display: flex;
-    flex-wrap: wrap;
+   display: flex;
+   /* height:1110px;
+   width:800px; */
+   flex-wrap: wrap;
+
+}
+
+.resmenulist{
+    height:20px;
 }
 
 /* .MenuList{

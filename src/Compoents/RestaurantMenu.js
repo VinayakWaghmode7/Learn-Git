@@ -46,22 +46,23 @@ console.log(restaurantRecommdationList);
             <h1>{restaurantMenuList?.cuisines}</h1>
             {/* <img className="menuListImage" src={CDN_URL + restaurantMenuList?.cloudinaryImageId}/> */}
             <div className="menuListContainer">
-                <ul>
+              
                     {
                        
                         restaurantRecommdationList?.map((x)=>(
                             <>
                             
-                            <li key={x?.card?.info?.id}>{x?.card?.info?.name}</li>
-                            <li key={x?.card?.info?.id}>{x?.card?.info?.price/100}</li>
+                            {/* <li className="resmenulist" key={x?.card?.info?.id}>{x?.card?.info?.price/100}</li> */}
                             <img className="menuListImage" src={CDN_URL + x?.card?.info?.imageId}/>
+                            <li className="resmenulist" key={x?.card?.info?.id}>{x?.card?.info?.name}</li>
+
 
                             </>
 
                         ))
                     
                     }
-                </ul>
+               
             </div>
         </div>
     )
