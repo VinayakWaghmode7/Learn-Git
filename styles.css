@@ -76,21 +76,32 @@
     width:200px;
     height:350px;
     padding: 5px;
-    margin-top: 20px;
+    /* position: absolute; */
+    overflow-x: 1;
+    /* margin-top: 20px;  */
+}
+
+.imageMenuList{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+  
    
 }
 
 .menuListContainer{
    display: flex;
-   /* height:1110px;
-   width:800px; */
    flex-wrap: wrap;
-
+   height: 500px;
+ 
+   
 }
 
 .resmenulist{
     height:20px;
     margin-bottom: 50px;
+    position: relative;
+    overflow-x: 0;
 }
 
 /* .MenuList{

@@ -53,7 +53,9 @@ console.log(restaurantRecommdationList);
                             <>
                             
                             {/* <li className="resmenulist" key={x?.card?.info?.id}>{x?.card?.info?.price/100}</li> */}
-                            <img className="menuListImage" src={CDN_URL + x?.card?.info?.imageId}/>
+                            <div className="imageMenuList">
+                            <img className="menuListImage"  src={CDN_URL + x?.card?.info?.imageId}/>
+                            </div>
                             <li className="resmenulist" key={x?.card?.info?.id}>{x?.card?.info?.name}</li>
 
 
